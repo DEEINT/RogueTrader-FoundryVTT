@@ -1,6 +1,6 @@
-import Dh from "./config.js";
+import Rt from "./config.js";
 
-export class DarkHeresyActor extends Actor {
+export class RogueTraderActor extends Actor {
 
     async _preCreate(data, options, user) {
 
@@ -12,7 +12,7 @@ export class DarkHeresyActor extends Actor {
             "prototypeToken.displayBars": CONST.TOKEN_DISPLAY_MODES.OWNER_HOVER
 
         };
-        if (data.type === "acolyte") {
+        if (data.type === "explorer") {
             initData["prototypeToken.actorLink"] = true;
             initData["prototypeToken.disposition"] = CONST.TOKEN_DISPOSITIONS.FRIENDLY;
         }
@@ -103,8 +103,8 @@ export class DarkHeresyActor extends Actor {
         for (let characteristic of Object.values(this.characteristics)) {
             let matchedAptitudes = characterAptitudes.filter(it => characteristic.aptitudes.includes(it)).length;
             let cost = 0;
-            for (let i = 0; i <= characteristic.advance / 5 && i <= Dh.characteristicCosts.length; i++) {
-                cost += Dh.characteristicCosts[i][2 - matchedAptitudes];
+            for (let i = 0; i <= characteristic.advance / 5 && i <= Rt.characteristicCosts.length; i++) {
+                cost += Rt.characteristicCosts[i][2 - matchedAptitudes];
             }
             characteristic.cost = cost.toString();
             this.experience.spentCharacteristics += cost;
@@ -136,7 +136,7 @@ export class DarkHeresyActor extends Actor {
                 let cost = 0;
                 let tier = parseInt(item.tier);
                 if (!item.system.starter && tier >= 1 && tier <= 3) {
-                    cost = Dh.talentCosts[tier - 1][2 - matchedAptitudes];
+                    cost = Rt.talentCosts[tier - 1][2 - matchedAptitudes];
                 }
                 item.system.cost = cost.toString();
                 this.experience.spentTalents += cost;
@@ -186,7 +186,7 @@ export class DarkHeresyActor extends Actor {
     }
 
     _computeExperience() {
-        if (game.settings.get("dark-heresy", "autoCalcXPCosts")) this._computeExperience_auto();
+        if (game.settings.get("rogue-trader", "autoCalcXPCosts")) this._computeExperience_auto();
         else this._computeExperience_normal();
     }
 
@@ -516,7 +516,7 @@ export class DarkHeresyActor extends Actor {
      */
     async _showCritMessage(rolls, target, totalWounds, totalCritWounds) {
         if (rolls.length === 0) return;
-        const html = await renderTemplate("systems/dark-heresy/template/chat/critical.hbs", {
+        const html = await renderTemplate("systems/rogue-trader/template/chat/critical.hbs", {
             rolls,
             target,
             totalWounds,

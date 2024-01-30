@@ -22,7 +22,7 @@ export async function commonRoll(rollData) {
  * @param {object} rollData
  */
 export async function combatRoll(rollData) {
-    if (rollData.weaponTraits.spray && game.settings.get("dark-heresy", "useSpraytemplate")) {
+    if (rollData.weaponTraits.spray && game.settings.get("rogue-trader", "useSpraytemplate")) {
         let template = PlaceableTemplate.cone(rollData.itemId, 30, rollData.range);
         await template.drawPreview();
     }
@@ -103,12 +103,12 @@ async function _computeCombatTarget(rollData) {
  * @param {object} rollData
  */
 async function _computeCommonTarget(rollData) {
-    if(rollData.isEvasion) {
+    if (rollData.isEvasion) {
         let skill;
-        switch(rollData.evasions.selected) {
-           case "dodge" : skill = rollData.evasions.dodge; break;
-           case "parry" : skill = rollData.evasions.parry; break;
-           case "deny" : skill = rollData.evasions.deny; break;
+        switch (rollData.evasions.selected) {
+            case "dodge": skill = rollData.evasions.dodge; break;
+            case "parry": skill = rollData.evasions.parry; break;
+            case "deny": skill = rollData.evasions.deny; break;
         }
         rollData.target = _getRollTarget(rollData.modifier, skill.baseTarget);
     } else {
@@ -559,7 +559,7 @@ async function _sendRollToChat(rollData) {
         rollMode: game.settings.get("core", "rollMode"),
         speaker: speaker,
         flags: {
-            "dark-heresy.rollData": rollData
+            "rogue-trader.rollData": rollData
         }
     };
 
@@ -574,9 +574,9 @@ async function _sendRollToChat(rollData) {
 
     let html;
     if (rollData.isEvasion) {
-        html = await renderTemplate("systems/dark-heresy/template/chat/evasion.hbs", rollData);
+        html = await renderTemplate("systems/rogue-trader/template/chat/evasion.hbs", rollData);
     } else {
-        html = await renderTemplate("systems/dark-heresy/template/chat/roll.hbs", rollData);
+        html = await renderTemplate("systems/rogue-trader/template/chat/roll.hbs", rollData);
     }
     chatData.content = html;
 
@@ -600,7 +600,7 @@ export async function sendDamageToChat(rollData) {
         rollMode: game.settings.get("core", "rollMode"),
         speaker: speaker,
         flags: {
-            "dark-heresy.rollData": rollData
+            "rogue-trader.rollData": rollData
         }
     };
 
@@ -610,7 +610,7 @@ export async function sendDamageToChat(rollData) {
 
     chatData.roll = rollData.damages[0].damageRoll;
 
-    const html = await renderTemplate("systems/dark-heresy/template/chat/damage.hbs", rollData);
+    const html = await renderTemplate("systems/rogue-trader/template/chat/damage.hbs", rollData);
     chatData.content = html;
 
     if (["gmroll", "blindroll"].includes(chatData.rollMode)) {
@@ -629,9 +629,9 @@ export async function sendDamageToChat(rollData) {
 async function _emptyClipToChat(rollData) {
     let chatData = {
         user: game.user.id,
-        content: await renderTemplate("systems/dark-heresy/template/chat/emptyMag.hbs", rollData),
+        content: await renderTemplate("systems/rogue-trader/template/chat/emptyMag.hbs", rollData),
         flags: {
-            "dark-heresy.rollData": rollData
+            "rogue-trader.rollData": rollData
         }
     };
     ChatMessage.create(chatData);

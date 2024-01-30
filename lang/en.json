@@ -1,6 +1,6 @@
 {
 
-  "TYPES.Actor.acolyte" : "Acolyte",
+  "TYPES.Actor.explorer" : "Explorer",
   "TYPES.Actor.npc" : "NPC",
 
   "ADVANCE.NONE": "None",

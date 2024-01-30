@@ -1,12 +1,12 @@
 import { commonRoll, combatRoll, reportEmptyClip } from "./roll.js";
-import DarkHeresyUtil from "./util.js";
+import RogueTraderUtil from "./util.js";
 
 /**
  * Show a generic roll dialog.
  * @param {object} rollData
  */
 export async function prepareCommonRoll(rollData) {
-    const html = await renderTemplate("systems/dark-heresy/template/dialog/common-roll.hbs", rollData);
+    const html = await renderTemplate("systems/rogue-trader/template/dialog/common-roll.hbs", rollData);
     let dialog = new Dialog({
         title: game.i18n.localize(rollData.name),
         content: html,
@@ -57,10 +57,10 @@ export async function prepareCommonRoll(rollData) {
 /**
  * Show a combat roll dialog.
  * @param {object} rollData
- * @param {DarkHeresyActor} actorRef
+ * @param {RogueTraderActor} actorRef
  */
 export async function prepareCombatRoll(rollData, actorRef) {
-    const html = await renderTemplate("systems/dark-heresy/template/dialog/combat-roll.hbs", rollData);
+    const html = await renderTemplate("systems/rogue-trader/template/dialog/combat-roll.hbs", rollData);
     let dialog = new Dialog({
         title: rollData.name,
         content: html,
@@ -164,7 +164,7 @@ export async function prepareCombatRoll(rollData, actorRef) {
  * @param {object} rollData
  */
 export async function preparePsychicPowerRoll(rollData) {
-    const html = await renderTemplate("systems/dark-heresy/template/dialog/psychic-power-roll.hbs", rollData);
+    const html = await renderTemplate("systems/rogue-trader/template/dialog/psychic-power-roll.hbs", rollData);
     let dialog = new Dialog({
         title: rollData.name,
         content: html,

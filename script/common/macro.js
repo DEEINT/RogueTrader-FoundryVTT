@@ -1,7 +1,7 @@
-import DarkHeresyUtil from "./util.js";
+import RogueTraderUtil from "./util.js";
 import { prepareCombatRoll, preparePsychicPowerRoll, prepareCommonRoll } from "./dialog.js";
 
-export default class DhMacroUtil {
+export default class RtMacroUtil {
 
     static async createMacro(data, slot)
     {
@@ -56,28 +56,28 @@ export default class DhMacroUtil {
         let rollData;
 
         if (specialty) {
-            rollData = DarkHeresyUtil.createSpecialtyRollData(actor, name, specialty);
+            rollData = RogueTraderUtil.createSpecialtyRollData(actor, name, specialty);
         } else if (type === "skill") {
-            rollData = DarkHeresyUtil.createSkillRollData(actor, name);
+            rollData = RogueTraderUtil.createSkillRollData(actor, name);
         } else if (name === "fear") {
-            rollData = DarkHeresyUtil.createFearTestRolldata(actor);
+            rollData = RogueTraderUtil.createFearTestRolldata(actor);
         } else if (name === "malignancy") {
-            rollData = DarkHeresyUtil.createMalignancyTestRolldata(actor);
+            rollData = RogueTraderUtil.createMalignancyTestRolldata(actor);
         } else if (name === "trauma") {
-            rollData = DarkHeresyUtil.createTraumaTestRolldata(actor);
+            rollData = RogueTraderUtil.createTraumaTestRolldata(actor);
         } else {
-            rollData = DarkHeresyUtil.createCharacteristicRollData(actor, name);
+            rollData = RogueTraderUtil.createCharacteristicRollData(actor, name);
         }
         prepareCommonRoll(rollData);
     }
 
     static rollPsychicPower(actor, item) {
-        let rollData = DarkHeresyUtil.createPsychicRollData(actor, item);
+        let rollData = RogueTraderUtil.createPsychicRollData(actor, item);
         preparePsychicPowerRoll(rollData);
     }
 
     static rollWeapon(actor, item) {
-        let rollData = DarkHeresyUtil.createWeaponRollData(actor, item);
+        let rollData = RogueTraderUtil.createWeaponRollData(actor, item);
         prepareCombatRoll(rollData);
     }
 

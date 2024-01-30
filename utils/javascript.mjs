@@ -44,11 +44,11 @@ export const lint = lintJavascript;
 
 function bundleJavascript() {
 	return rollup({
-			input: './script/dark-heresy.js',
+			input: './script/rogue-trader.js',
 		})
 		.then(bundle => {
 			return bundle.write({
-				file: './release/script/dark-heresy.js'
+				file: './release/script/rogue-trader.js'
 			});
 		});
 }

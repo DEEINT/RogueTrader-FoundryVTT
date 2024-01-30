@@ -1,7 +1,7 @@
 import {prepareCommonRoll, prepareCombatRoll, preparePsychicPowerRoll} from "../../common/dialog.js";
-import DarkHeresyUtil from "../../common/util.js";
+import RogueTraderUtil from "../../common/util.js";
 
-export class DarkHeresySheet extends ActorSheet {
+export class RogueTraderSheet extends ActorSheet {
     activateListeners(html) {
         super.activateListeners(html);
         html.find(".item-create").click(ev => this._onItemCreate(ev));
@@ -39,7 +39,7 @@ export class DarkHeresySheet extends ActorSheet {
     /** @override */
     get template() {
         if (!game.user.isGM && this.actor.limited) {
-            return "systems/dark-heresy/template/sheet/actor/limited-sheet.hbs";
+            return "systems/rogue-trader/template/sheet/actor/limited-sheet.hbs";
         } else {
             return this.options.template;
         }
@@ -103,7 +103,7 @@ export class DarkHeresySheet extends ActorSheet {
         event.preventDefault();
         const characteristicName = $(event.currentTarget).data("characteristic");
         await prepareCommonRoll(
-            DarkHeresyUtil.createCharacteristicRollData(this.actor, characteristicName)
+            RogueTraderUtil.createCharacteristicRollData(this.actor, characteristicName)
         );
     }
 
@@ -111,7 +111,7 @@ export class DarkHeresySheet extends ActorSheet {
         event.preventDefault();
         const skillName = $(event.currentTarget).data("skill");
         await prepareCommonRoll(
-            DarkHeresyUtil.createSkillRollData(this.actor, skillName)
+            RogueTraderUtil.createSkillRollData(this.actor, skillName)
         );
     }
 
@@ -120,21 +120,21 @@ export class DarkHeresySheet extends ActorSheet {
         const skillName = $(event.currentTarget).parents(".item").data("skill");
         const specialityName = $(event.currentTarget).data("speciality");
         await prepareCommonRoll(
-            DarkHeresyUtil.createSpecialtyRollData(this.actor, skillName, specialityName)
+            RogueTraderUtil.createSpecialtyRollData(this.actor, skillName, specialityName)
         );
     }
 
     async _prepareRollInsanity(event) {
         event.preventDefault();
         await prepareCommonRoll(
-            DarkHeresyUtil.createFearTestRolldata(this.actor)
+            RogueTraderUtil.createFearTestRolldata(this.actor)
         );
     }
 
     async _prepareRollCorruption(event) {
         event.preventDefault();
         await prepareCommonRoll(
-            DarkHeresyUtil.createMalignancyTestRolldata(this.actor)
+            RogueTraderUtil.createMalignancyTestRolldata(this.actor)
         );
     }
 
@@ -143,7 +143,7 @@ export class DarkHeresySheet extends ActorSheet {
         const div = $(event.currentTarget).parents(".item");
         const weapon = this.actor.items.get(div.data("itemId"));
         await prepareCombatRoll(
-            DarkHeresyUtil.createWeaponRollData(this.actor, weapon),
+            RogueTraderUtil.createWeaponRollData(this.actor, weapon),
             this.actor
         );
     }
@@ -153,7 +153,7 @@ export class DarkHeresySheet extends ActorSheet {
         const div = $(event.currentTarget).parents(".item");
         const psychicPower = this.actor.items.get(div.data("itemId"));
         await preparePsychicPowerRoll(
-            DarkHeresyUtil.createPsychicRollData(this.actor, psychicPower)
+            RogueTraderUtil.createPsychicRollData(this.actor, psychicPower)
         );
     }
 
