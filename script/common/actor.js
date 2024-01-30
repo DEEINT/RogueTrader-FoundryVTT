@@ -35,9 +35,9 @@ export class RogueTraderActor extends Actor {
         for (let characteristic of Object.values(this.characteristics)) {
             characteristic.total = characteristic.base + characteristic.advance;
             characteristic.bonus = Math.floor(characteristic.total / 10) + characteristic.unnatural;
-            if (this.fatigue.value > characteristic.bonus) {
-                characteristic.total = Math.ceil(characteristic.total / 2);
-                characteristic.bonus = Math.floor(characteristic.total / 10) + characteristic.unnatural;
+            if (this.fatigue.value > 0) {
+                characteristic.total = Math.max(characteristic.total - 10, 0);
+                characteristic.bonus = Math.max(Math.floor(characteristic.total / 10) + characteristic.unnatural, 0);
             }
             characteristic.isLeft = i < middle;
             characteristic.isRight = i >= middle;
@@ -48,18 +48,7 @@ export class RogueTraderActor extends Actor {
         this.system.corruptionBonus = Math.floor(this.corruption / 10);
         this.psy.currentRating = this.psy.rating - this.psy.sustained;
         this.initiative.bonus = this.characteristics[this.initiative.characteristic].bonus;
-        // Done as variables to make it easier to read & understand
-        let tb = Math.floor(
-            (this.characteristics.toughness.base
-        + this.characteristics.toughness.advance) / 10);
-
-        let wb = Math.floor(
-            (this.characteristics.willpower.base
-        + this.characteristics.willpower.advance) / 10);
-
-        // The only thing not affected by itself
-        this.fatigue.max = tb + wb;
-
+        this.fatigue.max = Math.floor((this.characteristics.toughness.base + this.characteristics.toughness.advance) / 10);
     }
 
     _computeSkills() {
