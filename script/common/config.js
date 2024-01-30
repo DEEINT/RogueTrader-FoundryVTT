@@ -1,8 +1,8 @@
-let Dh = {};
+let Rt = {};
 
-Dh.attackType = {};
+Rt.attackType = {};
 
-Dh.attackTypeRanged = {
+Rt.attackTypeRanged = {
     none: "ATTACK_TYPE.NONE",
     standard: "ATTACK_TYPE.STANDARD",
     semi_auto: "ATTACK_TYPE.SEMI_AUTO",
@@ -10,7 +10,7 @@ Dh.attackTypeRanged = {
     called_shot: "ATTACK_TYPE.CALLED_SHOT"
 };
 
-Dh.attackTypeMelee = {
+Rt.attackTypeMelee = {
     none: "ATTACK_TYPE.NONE",
     standard: "ATTACK_TYPE.STANDARD",
     charge: "ATTACK_TYPE.CHARGE",
@@ -20,7 +20,7 @@ Dh.attackTypeMelee = {
     called_shot: "ATTACK_TYPE.CALLED_SHOT"
 };
 
-Dh.attackTypePsy = {
+Rt.attackTypePsy = {
     none: "ATTACK_TYPE.NONE",
     bolt: "PSYCHIC_POWER.BOLT",
     barrage: "PSYCHIC_POWER.BARRAGE",
@@ -28,7 +28,7 @@ Dh.attackTypePsy = {
     blast: "PSYCHIC_POWER.BLAST"
 };
 
-Dh.ranges = {
+Rt.ranges = {
     0: "RANGE.NONE",
     30: "RANGE.POINT_BLANK",
     10: "RANGE.SHORT",
@@ -36,26 +36,26 @@ Dh.ranges = {
     "-30": "RANGE.EXTREME"
 };
 
-Dh.damageTypes = {
+Rt.damageTypes = {
     energy: "DAMAGE_TYPE.ENERGY",
     impact: "DAMAGE_TYPE.IMPACT",
     rending: "DAMAGE_TYPE.RENDING",
     explosive: "DAMAGE_TYPE.EXPLOSIVE"
 };
 
-Dh.aimModes = {
+Rt.aimModes = {
     0: "AIMING.NONE",
     10: "AIMING.HALF",
     20: "AIMING.FULL"
 };
 
-Dh.evasions = {
+Rt.evasions = {
     dodge: "SKILL.DODGE",
     parry: "SKILL.PARRY",
     deny: "DIALOG.DENY_THE_WITCH"
 };
 
-Dh.characteristicCosts = [
+Rt.characteristicCosts = [
     [0, 0, 0],
     [100, 250, 500],
     [250, 500, 750],
@@ -63,75 +63,75 @@ Dh.characteristicCosts = [
     [750, 1000, 1500],
     [1250, 1500, 2500]];
 
-Dh.talentCosts = [[200, 300, 600], [300, 450, 900], [400, 600, 1200]];
+Rt.talentCosts = [[200, 300, 600], [300, 450, 900], [400, 600, 1200]];
 
 
 CONFIG.statusEffects = [
     {
         id: "bleeding",
         label: "CONDITION.BLEEDING",
-        icon: "systems/dark-heresy/asset/icons/bleeding.png"
+        icon: "systems/rogue-trader/asset/icons/bleeding.png"
     },
     {
         id: "blinded",
         label: "CONDITION.BLINDED",
-        icon: "systems/dark-heresy/asset/icons/blinded.png"
+        icon: "systems/rogue-trader/asset/icons/blinded.png"
     },
     {
         id: "deafened",
         label: "CONDITION.DEAFEND",
-        icon: "systems/dark-heresy/asset/icons/deafened.png"
+        icon: "systems/rogue-trader/asset/icons/deafened.png"
     },
     {
         id: "fear",
         label: "CONDITION.FEAR",
-        icon: "systems/dark-heresy/asset/icons/fear.png"
+        icon: "systems/rogue-trader/asset/icons/fear.png"
     },
     {
         id: "fire",
         label: "CONDITION.FIRE",
-        icon: "systems/dark-heresy/asset/icons/flame.png"
+        icon: "systems/rogue-trader/asset/icons/flame.png"
     },
     {
         id: "grappled",
         label: "CONDITION.GRAPPLED",
-        icon: "systems/dark-heresy/asset/icons/grappled.png"
+        icon: "systems/rogue-trader/asset/icons/grappled.png"
     },
     {
         id: "hidden",
         label: "CONDITION.HIDDEN",
-        icon: "systems/dark-heresy/asset/icons/hidden.png"
+        icon: "systems/rogue-trader/asset/icons/hidden.png"
     },
     {
         id: "pinned",
         label: "CONDITION.PINNED",
-        icon: "systems/dark-heresy/asset/icons/pinning.png"
+        icon: "systems/rogue-trader/asset/icons/pinning.png"
     },
     {
         id: "poisond",
         label: "CONDITION.POISONED",
-        icon: "systems/dark-heresy/asset/icons/poisoned.png"
+        icon: "systems/rogue-trader/asset/icons/poisoned.png"
     },
     {
         id: "prone",
         label: "CONDITION.PRONE",
-        icon: "systems/dark-heresy/asset/icons/prone.png"
+        icon: "systems/rogue-trader/asset/icons/prone.png"
     },
     {
         id: "stunned",
         label: "CONDITION.STUNNED",
-        icon: "systems/dark-heresy/asset/icons/stunned.png"
+        icon: "systems/rogue-trader/asset/icons/stunned.png"
     },
     {
         id: "unconscious",
         label: "CONDITION.UNCONSCIOUS",
-        icon: "systems/dark-heresy/asset/icons/unconscious.png"
+        icon: "systems/rogue-trader/asset/icons/unconscious.png"
     },
     {
         id: "dead",
         label: "EFFECT.StatusDead", // Foundry Default Text Key
-        icon: "systems/dark-heresy/asset/icons/dead.png"
+        icon: "systems/rogue-trader/asset/icons/dead.png"
     }
 ];
 
-export default Dh;
+export default Rt;

@@ -1,6 +1,6 @@
 import { commonRoll, combatRoll, damageRoll } from "./roll.js";
 import { prepareCommonRoll } from "./dialog.js";
-import DarkHeresyUtil from "./util.js";
+import RogueTraderUtil from "./util.js";
 
 
 /**
@@ -132,11 +132,11 @@ function onTestClick(ev) {
         return;
     }
     let evasions = {
-        dodge : DarkHeresyUtil.createSkillRollData(actor, "dodge"), 
-        parry : DarkHeresyUtil.createSkillRollData(actor, "parry"), 
-        deny : DarkHeresyUtil.createCharacteristicRollData(actor, "willpower"),
-        selected : "dodge"
-    }
+        dodge: RogueTraderUtil.createSkillRollData(actor, "dodge"),
+        parry: RogueTraderUtil.createSkillRollData(actor, "parry"),
+        deny: RogueTraderUtil.createCharacteristicRollData(actor, "willpower"),
+        selected: "dodge"
+    };
     rollData.evasions = evasions;
     rollData.isEvasion = true;
     rollData.isDamageRoll = false;
@@ -175,7 +175,7 @@ async function onReloadClick(ev) {
 
 export const showRolls =html => {
     // Show dice rolls on click
-    html.on("click", ".dark-heresy.chat.roll>.background.border", onChatRollClick);
+    html.on("click", ".rogue-trader.chat.roll>.background.border", onChatRollClick);
 };
 
 /**

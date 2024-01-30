@@ -1,14 +1,14 @@
 $target = '.\release'
-$targetFile = ".\dark-heresy.zip"
+$targetFile = ".\rogue-trader.zip"
 
-New-Item -Path '.\release' -ItemType Directory
+New-Item -Path $target -ItemType Directory -ErrorAction SilentlyContinue
 
-gulp buildAll
+#gulp buildAll
 
 Copy-Item -Path ".\asset" -Destination $target -Recurse
 Copy-Item -Path ".\lang" -Destination $target -Recurse
 Copy-Item -Path ".\logo" -Destination $target -Recurse
-Copy-Item -Path ".\packs" -Destination $target -Recurse
+#Copy-Item -Path ".\packs" -Destination $target -Recurse
 Copy-Item -Path ".\template" -Destination $target -Recurse
 Copy-item -Path ".\CONTRIBUTING.md" -Destination $target
 Copy-item -Path ".\README.md" -Destination $target
@@ -21,7 +21,7 @@ if(Test-Path -Path $targetFile -PathType Leaf) {
 }
 
 $compress = @{
-	Path = ".\release\*"
+	Path = "$target\*"
 	CompressionLevel = "Optimal"
 	DestinationPath = $targetFile
 }

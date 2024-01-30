@@ -10,55 +10,55 @@ export const initializeHandlebars = () => {
  */
 function preloadHandlebarsTemplates() {
     const templatePaths = [
-        "systems/dark-heresy/template/sheet/actor/acolyte.hbs",
-        "systems/dark-heresy/template/sheet/actor/npc.hbs",
-        "systems/dark-heresy/template/sheet/actor/limited-sheet.hbs",
+        "systems/rogue-trader/template/sheet/actor/explorer.hbs",
+        "systems/rogue-trader/template/sheet/actor/npc.hbs",
+        "systems/rogue-trader/template/sheet/actor/limited-sheet.hbs",
 
-        "systems/dark-heresy/template/sheet/actor/tab/abilities.hbs",
-        "systems/dark-heresy/template/sheet/actor/tab/combat.hbs",
-        "systems/dark-heresy/template/sheet/actor/tab/gear.hbs",
-        "systems/dark-heresy/template/sheet/actor/tab/notes.hbs",
-        "systems/dark-heresy/template/sheet/actor/tab/npc-notes.hbs",
-        "systems/dark-heresy/template/sheet/actor/tab/npc-stats.hbs",
-        "systems/dark-heresy/template/sheet/actor/tab/progression.hbs",
-        "systems/dark-heresy/template/sheet/actor/tab/psychic-powers.hbs",
-        "systems/dark-heresy/template/sheet/actor/tab/stats.hbs",
+        "systems/rogue-trader/template/sheet/actor/tab/abilities.hbs",
+        "systems/rogue-trader/template/sheet/actor/tab/combat.hbs",
+        "systems/rogue-trader/template/sheet/actor/tab/gear.hbs",
+        "systems/rogue-trader/template/sheet/actor/tab/notes.hbs",
+        "systems/rogue-trader/template/sheet/actor/tab/npc-notes.hbs",
+        "systems/rogue-trader/template/sheet/actor/tab/npc-stats.hbs",
+        "systems/rogue-trader/template/sheet/actor/tab/progression.hbs",
+        "systems/rogue-trader/template/sheet/actor/tab/psychic-powers.hbs",
+        "systems/rogue-trader/template/sheet/actor/tab/stats.hbs",
 
-        "systems/dark-heresy/template/sheet/mental-disorder.hbs",
-        "systems/dark-heresy/template/sheet/aptitude.hbs",
-        "systems/dark-heresy/template/sheet/malignancy.hbs",
-        "systems/dark-heresy/template/sheet/mutation.hbs",
-        "systems/dark-heresy/template/sheet/talent.hbs",
-        "systems/dark-heresy/template/sheet/trait.hbs",
-        "systems/dark-heresy/template/sheet/special-ability.hbs",
-        "systems/dark-heresy/template/sheet/psychic-power.hbs",
-        "systems/dark-heresy/template/sheet/critical-injury.hbs",
-        "systems/dark-heresy/template/sheet/weapon.hbs",
-        "systems/dark-heresy/template/sheet/armour.hbs",
-        "systems/dark-heresy/template/sheet/gear.hbs",
-        "systems/dark-heresy/template/sheet/drug.hbs",
-        "systems/dark-heresy/template/sheet/tool.hbs",
-        "systems/dark-heresy/template/sheet/cybernetic.hbs",
-        "systems/dark-heresy/template/sheet/weapon-modification.hbs",
-        "systems/dark-heresy/template/sheet/ammunition.hbs",
-        "systems/dark-heresy/template/sheet/force-field.hbs",
+        "systems/rogue-trader/template/sheet/mental-disorder.hbs",
+        "systems/rogue-trader/template/sheet/aptitude.hbs",
+        "systems/rogue-trader/template/sheet/malignancy.hbs",
+        "systems/rogue-trader/template/sheet/mutation.hbs",
+        "systems/rogue-trader/template/sheet/talent.hbs",
+        "systems/rogue-trader/template/sheet/trait.hbs",
+        "systems/rogue-trader/template/sheet/special-ability.hbs",
+        "systems/rogue-trader/template/sheet/psychic-power.hbs",
+        "systems/rogue-trader/template/sheet/critical-injury.hbs",
+        "systems/rogue-trader/template/sheet/weapon.hbs",
+        "systems/rogue-trader/template/sheet/armour.hbs",
+        "systems/rogue-trader/template/sheet/gear.hbs",
+        "systems/rogue-trader/template/sheet/drug.hbs",
+        "systems/rogue-trader/template/sheet/tool.hbs",
+        "systems/rogue-trader/template/sheet/cybernetic.hbs",
+        "systems/rogue-trader/template/sheet/weapon-modification.hbs",
+        "systems/rogue-trader/template/sheet/ammunition.hbs",
+        "systems/rogue-trader/template/sheet/force-field.hbs",
 
-        "systems/dark-heresy/template/sheet/characteristics/information.hbs",
-        "systems/dark-heresy/template/sheet/characteristics/left.hbs",
-        "systems/dark-heresy/template/sheet/characteristics/name.hbs",
-        "systems/dark-heresy/template/sheet/characteristics/right.hbs",
-        "systems/dark-heresy/template/sheet/characteristics/total.hbs",
+        "systems/rogue-trader/template/sheet/characteristics/information.hbs",
+        "systems/rogue-trader/template/sheet/characteristics/left.hbs",
+        "systems/rogue-trader/template/sheet/characteristics/name.hbs",
+        "systems/rogue-trader/template/sheet/characteristics/right.hbs",
+        "systems/rogue-trader/template/sheet/characteristics/total.hbs",
 
-        "systems/dark-heresy/template/chat/item.hbs",
-        "systems/dark-heresy/template/chat/roll.hbs",
-        "systems/dark-heresy/template/chat/damage.hbs",
-        "systems/dark-heresy/template/chat/critical.hbs",
-        "systems/dark-heresy/template/chat/evasion.hbs",
-        "systems/dark-heresy/template/chat/emptyMag.hbs",
+        "systems/rogue-trader/template/chat/item.hbs",
+        "systems/rogue-trader/template/chat/roll.hbs",
+        "systems/rogue-trader/template/chat/damage.hbs",
+        "systems/rogue-trader/template/chat/critical.hbs",
+        "systems/rogue-trader/template/chat/evasion.hbs",
+        "systems/rogue-trader/template/chat/emptyMag.hbs",
 
-        "systems/dark-heresy/template/dialog/common-roll.hbs",
-        "systems/dark-heresy/template/dialog/combat-roll.hbs",
-        "systems/dark-heresy/template/dialog/psychic-power-roll.hbs"
+        "systems/rogue-trader/template/dialog/common-roll.hbs",
+        "systems/rogue-trader/template/dialog/combat-roll.hbs",
+        "systems/rogue-trader/template/dialog/psychic-power-roll.hbs"
     ];
     return loadTemplates(templatePaths);
 }
@@ -109,7 +109,7 @@ function registerHandlebarsHelpers() {
     });
 
     Handlebars.registerHelper("config", function(key) {
-        return game.darkHeresy.config[key];
+        return game.rogueTrader.config[key];
     });
 
 }

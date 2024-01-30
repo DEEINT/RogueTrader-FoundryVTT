@@ -1,8 +1,8 @@
 {
-  "id": "dark-heresy",
-  "title": "Dark Heresy 2E",
-  "description": "Unofficial Foundry VTT System for Dark Heresy 2nd Edition.",
-  "version": "4.2.9",
+  "id": "rogue-trader",
+  "title": "Rogue Trader",
+  "description": "Unofficial Foundry VTT System for Rogue Trader 1st Edition.",
+  "version": "0.0.1",
   "minimumCoreVersion" : 11,
   "compatibility" : {
     "minimum" : 11,
@@ -11,7 +11,7 @@
   },
   "templateVersion": 2,
   "authors": [
-	{ "name":"JeansenVaars" }, 
+    { "name":"JeansenVaars" }, 
     { "name":"Moo Man",
       "email": "russellt@cubicle7games.com",
       "discord": "Moo Man#7518",
@@ -22,23 +22,15 @@
     { "name":"Silver292" },
     { "name":"Giddy" },
     { "name":"Dazzerix" },
-	{ "name":"FilippoPolo" }
+    { "name":"FilippoPolo" },
+    { "name":"StealthBow" }
   ],
   "scripts": [],
   "esmodules": [
-    "script/dark-heresy.js"
+    "script/rogue-trader.js"
   ],
   "styles": [
-    "css/dark-heresy.css"
-  ],
-  "packs": [
-    {
-      "name": "character-aptitudes",
-      "label": "Character Aptitudes",
-      "system": "dark-heresy",
-      "path": "./packs/aptitudes.db",
-      "type": "Item"
-    }
+    "css/rogue-trader.css"
   ],
   "languages": [
     {
@@ -66,9 +58,9 @@
   "gridUnits": "m",
   "primaryTokenAttribute": null,
   "secondaryTokenAttribute": null,
-  "url": "https://github.com/Vendare/DarkHeresy2E-FoundryVTT",
+  "url": "https://github.com/StealthBow/RogueTrader-FoundryVTT",
   "socket": true,
-  "manifest": "https://github.com/Vendare/DarkHeresy2E-FoundryVTT/releases/download/4.2.9/system.json",
-  "download": "https://github.com/Vendare/DarkHeresy2E-FoundryVTT/releases/download/4.2.9/dark-heresy.zip",
+  "manifest": "https://github.com/StealthBow/RogueTrader-FoundryVTT/releases/download/0.0.1/system.json",
+  "download": "https://github.com/StealthBow/RogueTrader-FoundryVTT/releases/download/0.0.1/rogue-trader.zip",
   "license": "LICENSE.txt"
 }

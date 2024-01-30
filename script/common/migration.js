@@ -1,6 +1,6 @@
 export const migrateWorld = async () => {
     const schemaVersion = 6;
-    const worldSchemaVersion = Number(game.settings.get("dark-heresy", "worldSchemaVersion"));
+    const worldSchemaVersion = Number(game.settings.get("rogue-trader", "worldSchemaVersion"));
     if (worldSchemaVersion !== schemaVersion && game.user.isGM) {
         ui.notifications.info("Upgrading the world, please wait...");
         for (let actor of game.actors.contents) {
@@ -17,7 +17,7 @@ export const migrateWorld = async () => {
             game.packs.filter(p => p.metadata.package === "world" && ["Actor"].includes(p.metadata.type))) {
             await migrateCompendium(pack, worldSchemaVersion);
         }
-        game.settings.set("dark-heresy", "worldSchemaVersion", schemaVersion);
+        game.settings.set("rogue-trader", "worldSchemaVersion", schemaVersion);
         ui.notifications.info("Upgrade complete!");
     }
 };
@@ -25,13 +25,13 @@ export const migrateWorld = async () => {
 const migrateActorData = (actor, worldSchemaVersion) => {
     const update = {};
     if (worldSchemaVersion < 1) {
-        if (actor.data.type === "acolyte" || actor.data.type === "npc") {
+        if (actor.data.type === "explorer" || actor.data.type === "npc") {
             actor.data.skills.psyniscience.characteristics = ["Per", "WP"];
             update["system.skills.psyniscience"] = actor.data.data.skills.psyniscience;
         }
     }
     if (worldSchemaVersion < 2) {
-        if (actor.data.type === "acolyte" || actor.data.type === "npc") {
+        if (actor.data.type === "explorer" || actor.data.type === "npc") {
 
             let characteristic = actor.data.characteristics.intelligence.base;
             let advance = -20;
@@ -79,7 +79,7 @@ const migrateActorData = (actor, worldSchemaVersion) => {
 
     // // migrate aptitudes
     if (worldSchemaVersion < 4) {
-        if (actor.data.type === "acolyte" || actor.data.type === "npc") {
+        if (actor.data.type === "explorer" || actor.data.type === "npc") {
 
             let textAptitudes = actor.data.data?.aptitudes;
 
@@ -98,7 +98,7 @@ const migrateActorData = (actor, worldSchemaVersion) => {
                                 name: textAptitude.name,
                                 type: "aptitude",
                                 isAptitude: true,
-                                img: "systems/dark-heresy/asset/icons/aptitudes/aptitude400.png"
+                                img: "systems/rogue-trader/asset/icons/aptitudes/aptitude400.png"
                             };
                         });
                 if (aptitudeItemsData !== null && aptitudeItemsData !== undefined) {
