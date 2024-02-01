@@ -19,7 +19,6 @@ import { PsychicPowerSheet } from "./sheet/psychic-power.js";
 import { TalentSheet } from "./sheet/talent.js";
 import { SpecialAbilitySheet } from "./sheet/special-ability.js";
 import { TraitSheet } from "./sheet/trait.js";
-import { AptitudeSheet } from "./sheet/aptitude.js";
 import { initializeHandlebars } from "./common/handlebars.js";
 import { migrateWorld } from "./common/migration.js";
 import { prepareCommonRoll, prepareCombatRoll, preparePsychicPowerRoll } from "./common/dialog.js";
@@ -70,7 +69,6 @@ Hooks.once("init", () => {
     Items.registerSheet("rogue-trader", TalentSheet, { types: ["talent"], makeDefault: true });
     Items.registerSheet("rogue-trader", SpecialAbilitySheet, { types: ["specialAbility"], makeDefault: true });
     Items.registerSheet("rogue-trader", TraitSheet, { types: ["trait"], makeDefault: true });
-    Items.registerSheet("rogue-trader", AptitudeSheet, { types: ["aptitude"], makeDefault: true });
 
     initializeHandlebars();
 
@@ -82,6 +80,7 @@ Hooks.once("init", () => {
         default: 0,
         type: Number
     });
+    /* Disabling this setting for now.
     game.settings.register("rogue-trader", "autoCalcXPCosts", {
         name: "Calculate XP Costs",
         hint: "If enabled, calculate XP costs automatically.",
@@ -89,7 +88,7 @@ Hooks.once("init", () => {
         config: true,
         default: false,
         type: Boolean
-    });
+    }); */
     game.settings.register("rogue-trader", "useSpraytemplate", {
         name: "Use Template with Spray Weapons",
         hint: "If enabled, Spray Weapons will require the user to put down a template before the roll is made. Templates are NOT removed automatically",
@@ -134,7 +133,8 @@ Hooks.on("hotbarDrop", (bar, data, slot) => {
     }
 });
 
+/* Disabling this setting for now.
 Hooks.on("renderRogueTraderSheet", (sheet, html, data) => {
     html.find("input.cost").prop("disabled", game.settings.get("rogue-trader", "autoCalcXPCosts"));
     html.find(":not(.psychic-power) > input.item-cost").prop("disabled", game.settings.get("rogue-trader", "autoCalcXPCosts"));
-});
+}); */

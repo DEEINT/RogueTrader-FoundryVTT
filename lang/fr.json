@@ -2,15 +2,10 @@
     "ADVANCE.NONE": "Auncun",
     "ADVANCE.UNTRAINED": "Non connu",
     "ADVANCE.SIMPLE": "Simple",
-    "ADVANCE.KNOWN": "Connu",
     "ADVANCE.INTERMEDIATE": "Intermédiare",
     "ADVANCE.TRAINED": "Entraîné",
-    "ADVANCE.PROFICIENT": "Qualifié",
     "ADVANCE.EXPERT": "Expert",
-    "ADVANCE.VETERAN": "Vétéran",
-  
-    "APTITUDE.NAME": "Nom",
-  
+    
     "AMMUNITION.HEADER": "Munitions",
     "AMMUNITION.NAME": "Nom",
     "AMMUNITION.WEAPON": "Arme",
@@ -93,6 +88,8 @@
     "ENCUMBRANCE.MAX": "Max",
     "ENCUMBRANCE.CURRENT": "Actuel",
   
+    "EVASIONS.PARRY": "Parade",
+
     "CHARACTERISTIC.WEAPON_SKILL": "Capacité de combat",
     "CHARACTERISTIC.BALLISTIC_SKILL": "Capacité de tir",
     "CHARACTERISTIC.STRENGTH": "Force",
@@ -102,7 +99,6 @@
     "CHARACTERISTIC.PERCEPTION": "Perception",
     "CHARACTERISTIC.WILLPOWER": "Force Mentale",
     "CHARACTERISTIC.FELLOWSHIP": "Sociabilité",
-    "CHARACTERISTIC.INFLUENCE": "Influence",
   
     "CHARACTERISTIC.NAME": "Nom",
     "CHARACTERISTIC.ADVANCE": "Progression",
@@ -255,7 +251,6 @@
     "RANGE.EXTREME": "Extrème",
   
     "SKILL.ACROBATICS": "Acrobatie",
-    "SKILL.ATHLETICS": "Athlétisme",
     "SKILL.AWARENESS": "Vigilance",
     "SKILL.CHARM": "Charisme",
     "SKILL.COMMAND": "Commandement",
@@ -267,18 +262,14 @@
     "SKILL.INQUIRY": "Enquête",
     "SKILL.INTERROGATION": "Interrogatoire",
     "SKILL.INTIMIDATE": "Intimidation",
-    "SKILL.LINGUISTICS": "Langue",
     "SKILL.LOGIC": "Logique",
     "SKILL.MEDICAE": "Medicae",
-    "SKILL.NAVIGATE": "Orientation",
-    "SKILL.OPERATE": "Pilotage",
-    "SKILL.PARRY": "Parade",
+    "SKILL.NAVIGATION": "Orientation",
     "SKILL.PSYNISCIENCE": "Psyniscience",
     "SKILL.SCHOLASTIC_LORE": "Connaissances scholastiques",
     "SKILL.SCRUTINY": "Psychologie",
     "SKILL.SECURITY": "Intrusion",
     "SKILL.SLEIGHT_OF_HAND": "Escamotage",
-    "SKILL.STEALTH": "Dissimulation",
     "SKILL.SURVIVAL": "Survie",
     "SKILL.TECH_USE": "Technomaîtrise",
     "SKILL.TRADE": "Métier",
@@ -310,7 +301,6 @@
     "TALENT.STARTER": "I",
     "TALENT.PREREQUISITES": "Prérequis",
     "TALENT.TIER": "Rang",
-    "TALENT.APTITUDES": "Aptitudes",
   
     "TOOL.HEADER": "Outil",
     "TOOL.NAME": "Nom",

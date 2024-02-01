@@ -171,7 +171,6 @@ export class RogueTraderSheet extends ActorSheet {
         items.talents = itemTypes.talent;
         items.traits = itemTypes.trait;
         items.specialAbilities = itemTypes.specialAbility;
-        items.aptitudes = itemTypes.aptitude;
 
         items.psychicPowers = itemTypes.psychicPower;
 

@@ -237,8 +237,6 @@ export class RogueTraderItem extends Item {
 
     get isTrait() { return this.type === "trait"; }
 
-    get isAptitude() { return this.type === "aptitude"; }
-
     get isSpecialAbility() { return this.type === "specialAbility"; }
 
     get isPsychicPower() { return this.type === "psychicPower"; }
@@ -316,8 +314,6 @@ export class RogueTraderItem extends Item {
     get benefit() { return this.system.benefit;}
 
     get prerequisites() { return this.system.prerequisites;}
-
-    get aptitudes() { return this.system.aptitudes;}
 
     get starter() { return this.system.starter;}
 

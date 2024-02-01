@@ -25,7 +25,6 @@ function preloadHandlebarsTemplates() {
         "systems/rogue-trader/template/sheet/actor/tab/stats.hbs",
 
         "systems/rogue-trader/template/sheet/mental-disorder.hbs",
-        "systems/rogue-trader/template/sheet/aptitude.hbs",
         "systems/rogue-trader/template/sheet/malignancy.hbs",
         "systems/rogue-trader/template/sheet/mutation.hbs",
         "systems/rogue-trader/template/sheet/talent.hbs",

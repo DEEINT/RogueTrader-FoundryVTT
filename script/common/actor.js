@@ -48,21 +48,34 @@ export class RogueTraderActor extends Actor {
         this.system.corruptionBonus = Math.floor(this.corruption / 10);
         this.psy.currentRating = this.psy.rating - this.psy.sustained;
         this.initiative.bonus = this.characteristics[this.initiative.characteristic].bonus;
-        this.fatigue.max = Math.floor((this.characteristics.toughness.base + this.characteristics.toughness.advance) / 10);
+        this.fatigue.max = Math.floor((this.characteristics.toughness.base
+            + this.characteristics.toughness.advance) / 10);
     }
 
     _computeSkills() {
         for (let skill of Object.values(this.skills)) {
             let short = skill.characteristics[0];
             let characteristic = this._findCharacteristic(short);
-            skill.total = characteristic.total + skill.advance;
-            skill.advanceSkill = this._getAdvanceSkill(skill.advance);
             if (skill.isSpecialist) {
+                let specialitiesKnown = 0;
                 for (let speciality of Object.values(skill.specialities)) {
+                    if ((typeof speciality.characteristics !== "undefined") && (short !== speciality.characteristics[0])) {
+                        characteristic = this._findCharacteristic(speciality.characteristics[0]);
+                    }
+                    speciality.isKnown = speciality.advance >= -10;
+                    if (speciality.isKnown) { ++specialitiesKnown; }
                     speciality.total = characteristic.total + speciality.advance;
-                    speciality.isKnown = speciality.advance >= 0;
                     speciality.advanceSpec = this._getAdvanceSkill(speciality.advance);
                 }
+                skill.isKnown = specialitiesKnown > 0;
+            } else {
+                skill.isKnown = skill.advance >= -10;
+                if (skill.advance === -10) {
+                    skill.total = Math.floor(characteristic.total / 2);
+                } else {
+                    skill.total = characteristic.total + skill.advance;
+                }
+                skill.advanceSkill = this._getAdvanceSkill(skill.advance);
             }
         }
     }
@@ -175,8 +188,10 @@ export class RogueTraderActor extends Actor {
     }
 
     _computeExperience() {
+        /* Disabling this for now.
         if (game.settings.get("rogue-trader", "autoCalcXPCosts")) this._computeExperience_auto();
-        else this._computeExperience_normal();
+        else this._computeExperience_normal(); */
+        this._computeExperience_normal();
     }
 
     _computeArmour() {
@@ -345,8 +360,6 @@ export class RogueTraderActor extends Actor {
             case 15:
                 return "T";
             case 20:
-                return "P";
-            case 25:
                 return "E";
             default:
                 return "N";
@@ -357,14 +370,14 @@ export class RogueTraderActor extends Actor {
         switch (skill || 0) {
             case -20:
                 return "U";
+            case -10:
+                return "B";
             case 0:
-                return "K";
-            case 10:
                 return "T";
+            case 10:
+                return "+";
             case 20:
-                return "E";
-            case 30:
-                return "V";
+                return "++";
             default:
                 return "U";
         }
@@ -543,8 +556,6 @@ export class RogueTraderActor extends Actor {
     get insanity() { return this.system.insanity; }
 
     get corruption() { return this.system.corruption; }
-
-    get aptitudes() { return this.system.aptitudes; }
 
     get size() { return this.system.size; }
 
