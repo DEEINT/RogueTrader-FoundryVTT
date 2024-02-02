@@ -33,7 +33,7 @@ export class RogueTraderActor extends Actor {
         let middle = Object.values(this.characteristics).length / 2;
         let i = 0;
         for (let characteristic of Object.values(this.characteristics)) {
-            characteristic.total = characteristic.base + characteristic.advance;
+            characteristic.total = Math.max(0, characteristic.base + characteristic.advance - characteristic.damage);
             characteristic.bonus = Math.floor(characteristic.total / 10) + characteristic.unnatural;
             if (this.fatigue.value > 0) {
                 characteristic.total = Math.max(characteristic.total - 10, 0);

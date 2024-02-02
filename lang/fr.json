@@ -105,6 +105,7 @@
     "CHARACTERISTIC.UNNATURAL": "Surnaturel",
     "CHARACTERISTIC.BASE": "Base",
     "CHARACTERISTIC.COST": "Coût",
+    "CHARACTERISTIC.DAMAGE": "Dégâts",
   
     "CHAT.SUCCESS": "Réussite !",
     "CHAT.FAILURE": "Echec !",
@@ -316,7 +317,6 @@
     "TITLE.CHARACTERISTICS": "Caractéristique",
     "TITLE.CORRUPTION": "Corruption",
     "TITLE.SKILLS": "Compétences",
-    "TITLE.APTITUDES": "Aptitudes",
     "TITLE.EXPERIENCE": "Expérience",
     "TITLE.TALENTS": "Talents",
     "TITLE.TRAITS": "Traits",

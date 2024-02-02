@@ -1,24 +1,17 @@
 <div class="flex wrap progression">
-    <div class="aptitudes border">
-        <h1>{{localize "TITLE.APTITUDES"}}</h1>
+    <div class="charDamage border">
+        <h1>{{localize "TITLE.CHARACTERISTIC_DAMAGE"}}</h1>
         <div class="item-list">
             <div class="flex header">
-                <b class="name">{{localize "APTITUDE.NAME"}}</b>
-                <a class="button item-create" title="Add Aptitude" data-type="aptitude"><i class="fas fa-plus"></i></a>
+                <b class="name">{{localize "CHARACTERISTIC.NAME"}}</b>
+                <b class="damage">{{localize "CHARACTERISTIC.DAMAGE"}}</b>
             </div>
             <div class="items">
-                {{#each items.aptitudes as |item|}}                    
-                    <div class="aptitude item flex row" data-item-id="{{item.id}}">
-                        <div class="flex aptitude-row item-edit" title="{{removeMarkup item.description}}">
-                            <div class="image-container">
-                                <div class="image" style="background-image: url('{{item.img}}')"></div>
-                            </div>
-                            <div class="name">{{item.name}}</div>
-                        </div>
-                        <div class="button">
-                            <a class="item-control item-delete" title="Delete Aptitude"><i class="fas fa-trash"></i></a>
-                        </div>
-                    </div>                    
+                {{#each system.characteristics as |characteristic key|}}
+                    <div class="characteristic item flex row">
+                        <div class="name">{{localize characteristic.label}}</div>
+                        <input class="damage" name="system.characteristics.{{key}}.damage" type="number" value="{{characteristic.damage}}" data-dtype="Number" />
+                    </div>
                 {{/each}}
             </div>
         </div>
