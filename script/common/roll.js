@@ -145,10 +145,10 @@ async function _rollTarget(rollData) {
     rollData.isSuccess = rollData.result <= rollData.target;
     if (rollData.isSuccess) {
         rollData.dof = 0;
-        rollData.dos = 1 + _getDegree(rollData.target, rollData.result);
+        rollData.dos = _getDegree(rollData.target, rollData.result);
     } else {
         rollData.dos = 0;
-        rollData.dof = 1 + _getDegree(rollData.result, rollData.target);
+        rollData.dof = _getDegree(rollData.result, rollData.target);
     }
     if (rollData.psy) _computePsychicPhenomena(rollData);
 }
@@ -229,7 +229,7 @@ function _computeNumberOfHits(attackDos, evasionDos, attackType, weaponTraits) {
         attackDos += attackType.hitMargin;
     }
 
-    let hits = 1 + Math.floor((attackDos - 1) / attackType.hitMargin);
+    let hits = 1 + Math.floor(attackDos / attackType.hitMargin);
 
     if (hits > attackType.maxHits) {
         hits = attackType.maxHits;
@@ -258,7 +258,7 @@ async function _computeDamage(damageFormula, penetration, dos, isAiming, weaponT
     r.evaluate({ async: false });
     let damage = {
         total: r.total,
-        righteousFury: 0,
+        righteousFury: false,
         dices: [],
         penetration: penetration,
         dos: dos,
@@ -285,10 +285,10 @@ async function _computeDamage(damageFormula, penetration, dos, isAiming, weaponT
 
     r.terms.forEach(term => {
         if (typeof term === "object" && term !== null) {
-            let rfFace = weaponTraits.rfFace ? weaponTraits.rfFace : term.faces; // Without the Vengeful weapon trait rfFace is undefined
+            let rfFace = term.faces;
             term.results?.forEach(async result => {
                 let dieResult = result.count ? result.count : result.result; // Result.count = actual value if modified by term
-                if (result.active && dieResult >= rfFace) damage.righteousFury = _rollRighteousFury();
+                if (result.active && dieResult >= rfFace) damage.righteousFury = true;
                 if (result.active && dieResult < dos) damage.dices.push(dieResult);
                 if (result.active && (typeof damage.minDice === "undefined" || dieResult < damage.minDice)) damage.minDice = dieResult;
             });
@@ -318,16 +318,6 @@ function _rollPenetration(rollData) {
     let r = new Roll(penetration.toString());
     r.evaluate({ async: false });
     return r.total * multiplier;
-}
-
-/**
- * Roll a Righteous Fury dice, and return the value.
- * @returns {number}
- */
-function _rollRighteousFury() {
-    let r = new Roll("1d5");
-    r.evaluate({ async: false });
-    return r.total;
 }
 
 /**
@@ -384,11 +374,6 @@ function _getLocation(result) {
 function _computeRateOfFire(rollData) {
     switch (rollData.attackType.name) {
         case "standard":
-            rollData.attackType.modifier = 10;
-            rollData.attackType.hitMargin = 1;
-            rollData.attackType.maxHits = 1;
-            break;
-
         case "bolt":
         case "blast":
             rollData.attackType.modifier = 0;
@@ -396,18 +381,27 @@ function _computeRateOfFire(rollData) {
             rollData.attackType.maxHits = 1;
             break;
 
-        case "swift":
         case "semi_auto":
+            rollData.attackType.modifier = 10;
+            rollData.attackType.hitMargin = 2;
+            rollData.attackType.maxHits = rollData.rateOfFire.burst;
+            break;
+
         case "barrage":
             rollData.attackType.modifier = 0;
             rollData.attackType.hitMargin = 2;
             rollData.attackType.maxHits = rollData.rateOfFire.burst;
             break;
 
-        case "lightning":
         case "full_auto":
-            rollData.attackType.modifier = -10;
+            rollData.attackType.modifier = 20;
             rollData.attackType.hitMargin = 1;
+            rollData.attackType.maxHits = rollData.rateOfFire.full;
+            break;
+
+        case "suppressing_fire":
+            rollData.attackType.modifier = -20;
+            rollData.attackType.hitMargin = 2;
             rollData.attackType.maxHits = rollData.rateOfFire.full;
             break;
 
@@ -418,20 +412,26 @@ function _computeRateOfFire(rollData) {
             break;
 
         case "charge":
-            rollData.attackType.modifier = 20;
+            rollData.attackType.modifier = 10;
             rollData.attackType.hitMargin = 1;
             rollData.attackType.maxHits = 1;
             break;
 
         case "allOut":
-            rollData.attackType.modifier = 30;
+            rollData.attackType.modifier = 20;
+            rollData.attackType.hitMargin = 1;
+            rollData.attackType.maxHits = 1;
+            break;
+
+        case "guarded":
+            rollData.attackType.modifier = -10;
             rollData.attackType.hitMargin = 1;
             rollData.attackType.maxHits = 1;
             break;
 
         default:
             rollData.attackType.modifier = 0;
-            rollData.attackType.hitMargin = 0;
+            rollData.attackType.hitMargin = 1;
             rollData.attackType.maxHits = 1;
             break;
     }
@@ -439,8 +439,8 @@ function _computeRateOfFire(rollData) {
 
 const additionalHit = {
     head: ["ARMOUR.HEAD", "ARMOUR.RIGHT_ARM", "ARMOUR.BODY", "ARMOUR.LEFT_ARM", "ARMOUR.BODY"],
-    rightArm: ["ARMOUR.RIGHT_ARM", "ARMOUR.RIGHT_ARM", "ARMOUR.HEAD", "ARMOUR.BODY", "ARMOUR.RIGHT_ARM"],
-    leftArm: ["ARMOUR.LEFT_ARM", "ARMOUR.LEFT_ARM", "ARMOUR.HEAD", "ARMOUR.BODY", "ARMOUR.LEFT_ARM"],
+    rightArm: ["ARMOUR.RIGHT_ARM", "ARMOUR.BODY", "ARMOUR.HEAD", "ARMOUR.BODY", "ARMOUR.RIGHT_ARM"],
+    leftArm: ["ARMOUR.LEFT_ARM", "ARMOUR.BODY", "ARMOUR.HEAD", "ARMOUR.BODY", "ARMOUR.LEFT_ARM"],
     body: ["ARMOUR.BODY", "ARMOUR.RIGHT_ARM", "ARMOUR.HEAD", "ARMOUR.LEFT_ARM", "ARMOUR.BODY"],
     rightLeg: ["ARMOUR.RIGHT_LEG", "ARMOUR.BODY", "ARMOUR.RIGHT_ARM", "ARMOUR.HEAD", "ARMOUR.BODY"],
     leftLeg: ["ARMOUR.LEFT_LEG", "ARMOUR.BODY", "ARMOUR.LEFT_ARM", "ARMOUR.HEAD", "ARMOUR.BODY"]
@@ -489,7 +489,7 @@ function _getLocationByIt(part, numberOfHit) {
  * @returns {number}
  */
 function _getDegree(a, b) {
-    return Math.floor(a / 10) - Math.floor(b / 10);
+    return Math.floor((a - b) / 10);
 }
 /**
  * Replaces all Symbols in the given Formula with their Respective Values

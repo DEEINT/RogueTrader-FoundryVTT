@@ -12,8 +12,8 @@ The project is being continued under the GPL-3.0 License after the original auth
 3. Create a Game World using the Rogue Trader system.
 
 ## Preview
-![Explorer 1](https://raw.githubusercontent.com/moo-man/RogueTrader-FoundryVTT/master/asset/preview/explorer1.jpg)  
-![Explorer 2](https://raw.githubusercontent.com/moo-man/RogueTrader-FoundryVTT/master/asset/preview/explorer2.jpg)  
+![Explorer 1](https://raw.githubusercontent.com/StealthBow/RogueTrader-FoundryVTT/master/asset/preview/explorer1.jpg)
+![Explorer 2](https://raw.githubusercontent.com/StealthBow/RogueTrader-FoundryVTT/master/asset/preview/explorer2.jpg)
 
 ## Related Website
 - https://foundryvtt.com/

@@ -1,24 +1,17 @@
 <div class="flex wrap progression">
-    <div class="aptitudes border">
-        <h1>{{localize "TITLE.APTITUDES"}}</h1>
+    <div class="charDamage border">
+        <h1>{{localize "TITLE.CHARACTERISTIC_DAMAGE"}}</h1>
         <div class="item-list">
             <div class="flex header">
-                <b class="name">{{localize "APTITUDE.NAME"}}</b>
-                <a class="button item-create" title="Add Aptitude" data-type="aptitude"><i class="fas fa-plus"></i></a>
+                <b class="name">{{localize "CHARACTERISTIC.NAME"}}</b>
+                <b class="damage">{{localize "CHARACTERISTIC.DAMAGE"}}</b>
             </div>
             <div class="items">
-                {{#each items.aptitudes as |item|}}                    
-                    <div class="aptitude item flex row" data-item-id="{{item.id}}">
-                        <div class="flex aptitude-row item-edit" title="{{removeMarkup item.description}}">
-                            <div class="image-container">
-                                <div class="image" style="background-image: url('{{item.img}}')"></div>
-                            </div>
-                            <div class="name">{{item.name}}</div>
-                        </div>
-                        <div class="button">
-                            <a class="item-control item-delete" title="Delete Aptitude"><i class="fas fa-trash"></i></a>
-                        </div>
-                    </div>                    
+                {{#each system.characteristics as |characteristic key|}}
+                    <div class="characteristic item flex row">
+                        <div class="name">{{localize characteristic.label}}</div>
+                        <input class="damage" name="system.characteristics.{{key}}.damage" type="number" value="{{characteristic.damage}}" data-dtype="Number" />
+                    </div>
                 {{/each}}
             </div>
         </div>
@@ -107,8 +100,7 @@
                                     <option value="5">{{localize "ADVANCE.SIMPLE"}}</option>
                                     <option value="10">{{localize "ADVANCE.INTERMEDIATE"}}</option>
                                     <option value="15">{{localize "ADVANCE.TRAINED"}}</option>
-                                    <option value="20">{{localize "ADVANCE.PROFICIENT"}}</option>
-                                    <option value="25">{{localize "ADVANCE.EXPERT"}}</option>
+                                    <option value="20">{{localize "ADVANCE.EXPERT"}}</option>
                                 {{/select}}
                             </select>
                             <input class="unnatural" name="system.characteristics.{{key}}.unnatural" type="number" value="{{characteristic.unnatural}}" data-dtype="Number" />
@@ -186,10 +178,10 @@
                             <select class="advance" name="system.skills.{{key}}.advance" data-dtype="Number">
                                 {{#select skill.advance}}
                                     <option value="-20">{{localize "ADVANCE.UNTRAINED"}}</option>
-                                    <option value="0">{{localize "ADVANCE.KNOWN"}}</option>
-                                    <option value="10">{{localize "ADVANCE.TRAINED"}}</option>
-                                    <option value="20">{{localize "ADVANCE.EXPERT"}}</option>
-                                    <option value="30">{{localize "ADVANCE.VETERAN"}}</option>
+                                    <option value="-10">{{localize "ADVANCE.BASIC"}}</option>
+                                    <option value="0">{{localize "ADVANCE.TRAINED"}}</option>
+                                    <option value="10">{{localize "ADVANCE.10"}}</option>
+                                    <option value="20">{{localize "ADVANCE.20"}}</option>
                                 {{/select}}
                             </select>
                             <input class="total" name="system.skills.{{key}}.total" type="number" value="{{skill.total}}" data-dtype="Number" disabled />
@@ -209,10 +201,10 @@
                                 <select class="advance" name="system.skills.{{key}}.specialities.{{keySpe}}.advance" data-dtype="Number">
                                     {{#select speciality.advance}}
                                         <option value="-20">{{localize "ADVANCE.UNTRAINED"}}</option>
-                                        <option value="0">{{localize "ADVANCE.KNOWN"}}</option>
-                                        <option value="10">{{localize "ADVANCE.TRAINED"}}</option>
-                                        <option value="20">{{localize "ADVANCE.EXPERT"}}</option>
-                                        <option value="30">{{localize "ADVANCE.VETERAN"}}</option>
+                                        <option value="-10">{{localize "ADVANCE.BASIC"}}</option>
+                                        <option value="0">{{localize "ADVANCE.TRAINED"}}</option>
+                                        <option value="10">{{localize "ADVANCE.10"}}</option>
+                                        <option value="20">{{localize "ADVANCE.20"}}</option>
                                     {{/select}}
                                 </select>
                                 <input class="total" name="system.skills.{{key}}.specialities.{{keySpe}}.total" type="number" value="{{speciality.total}}" data-dtype="Number" disabled />

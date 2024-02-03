@@ -1,4 +1,4 @@
-.rogue-trader .progression .aptitudes {
+.rogue-trader .progression .charDamage {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -6,24 +6,28 @@
     align-items: center;
 }
 
-.rogue-trader .progression .aptitudes .item-list .header {
+.rogue-trader .progression .charDamage h1 {
+    font-size: 13px;
+}
+
+.rogue-trader .progression .charDamage .item-list .header {
     margin-top: 5px;
 }
 
-.rogue-trader .progression .aptitudes .item-list .header .name {
+.rogue-trader .progression .charDamage .item-list .header .name {
     flex-basis: 89%;
 }
 
-.rogue-trader .progression .aptitudes .item-list .items .aptitude {
+.rogue-trader .progression .charDamage .item-list .items .charDamage {
     width: 100%;
 }
 
-.rogue-trader .progression .aptitudes .item-list .items {
+.rogue-trader .progression .charDamage .item-list .items {
     max-height: 160px;
     height: 160px;
 }
 
-.rogue-trader .progression .aptitudes .item-list .items .item .name {
+.rogue-trader .progression .charDamage .item-list .items .item .name {
     flex-basis: 90%;
     align-items: center;
     background: none;
@@ -33,7 +37,7 @@
     padding: 0;
 }
 
-.rogue-trader .progression .aptitudes .item-list .items .item .name:focus {
+.rogue-trader .progression .charDamage .item-list .items .item .name:focus {
     background: #d0d0d0;
     border-radius: 3px;
     border: 1px solid var(--color-border);
@@ -107,12 +111,12 @@
     flex-basis: 6%;
 }
 
-.rogue-trader .progression .aptitudes .item-list .items .item .aptitude-row {
+.rogue-trader .progression .charDamage .item-list .items .item .charDamage-row {
     flex-basis: 90%;
     align-items: center;
 }
 
-.rogue-trader .progression .aptitudes .item-list .items .item input {
+.rogue-trader .progression .charDamage .item-list .items .item input {
     flex-basis: 28%;
     margin: 1px 5px;
 }

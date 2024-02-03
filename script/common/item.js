@@ -163,7 +163,7 @@ export class RogueTraderItem extends Item {
     get ArmourType() {
         switch (this.subtype) {
             case "basic":
-                return game.i18n.localize("ARMOUR_TYPE.BASIC");
+                return game.i18n.localize("ARMOUR_TYPE.PRIMITIVE");
             case "flak":
                 return game.i18n.localize("ARMOUR_TYPE.FLAK");
             case "mesh":
@@ -172,8 +172,10 @@ export class RogueTraderItem extends Item {
                 return game.i18n.localize("ARMOUR_TYPE.CARAPACE");
             case "power":
                 return game.i18n.localize("ARMOUR_TYPE.POWER");
+            case "other":
+                return game.i18n.localize("ARMOUR_TYPE.OTHER");
             default:
-                return game.i18n.localize("ARMOUR_TYPE.COMMON");
+                return game.i18n.localize("ARMOUR_TYPE.PRIMITIVE");
         }
     }
 
@@ -236,8 +238,6 @@ export class RogueTraderItem extends Item {
     get isTalent() { return this.type === "talent"; }
 
     get isTrait() { return this.type === "trait"; }
-
-    get isAptitude() { return this.type === "aptitude"; }
 
     get isSpecialAbility() { return this.type === "specialAbility"; }
 
@@ -316,8 +316,6 @@ export class RogueTraderItem extends Item {
     get benefit() { return this.system.benefit;}
 
     get prerequisites() { return this.system.prerequisites;}
-
-    get aptitudes() { return this.system.aptitudes;}
 
     get starter() { return this.system.starter;}
 

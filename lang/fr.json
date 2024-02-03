@@ -2,15 +2,10 @@
     "ADVANCE.NONE": "Auncun",
     "ADVANCE.UNTRAINED": "Non connu",
     "ADVANCE.SIMPLE": "Simple",
-    "ADVANCE.KNOWN": "Connu",
     "ADVANCE.INTERMEDIATE": "Intermédiare",
     "ADVANCE.TRAINED": "Entraîné",
-    "ADVANCE.PROFICIENT": "Qualifié",
     "ADVANCE.EXPERT": "Expert",
-    "ADVANCE.VETERAN": "Vétéran",
-  
-    "APTITUDE.NAME": "Nom",
-  
+    
     "AMMUNITION.HEADER": "Munitions",
     "AMMUNITION.NAME": "Nom",
     "AMMUNITION.WEAPON": "Arme",
@@ -39,7 +34,7 @@
     "ARMOUR.CRAFTSMANSHIP": "Qualité",
     "ARMOUR.AVAILABILITY": "Disponibilité",
   
-    "ARMOUR_TYPE.BASIC": "Primitive",
+    "ARMOUR_TYPE.PRIMITIVE": "Primitive",
     "ARMOUR_TYPE.FLAK": "Pare-balle",
     "ARMOUR_TYPE.MESH": "Composite",
     "ARMOUR_TYPE.CARAPACE": "Carapace",
@@ -47,9 +42,7 @@
   
     "ATTACK_TYPE.NONE": "Aucune",
     "ATTACK_TYPE.STANDARD": "Attaque standard",
-    "ATTACK_TYPE.SWIFT": "Attaque rapide",
     "ATTACK_TYPE.SEMI_AUTO": "Rafale semi-automatique",
-    "ATTACK_TYPE.LIGHTNING": "Attaque éclaire",
     "ATTACK_TYPE.FULL_AUTO": "Rafale automatique",
     "ATTACK_TYPE.CALLED_SHOT": "Attaque ciblée",
   
@@ -93,6 +86,8 @@
     "ENCUMBRANCE.MAX": "Max",
     "ENCUMBRANCE.CURRENT": "Actuel",
   
+    "EVASIONS.PARRY": "Parade",
+
     "CHARACTERISTIC.WEAPON_SKILL": "Capacité de combat",
     "CHARACTERISTIC.BALLISTIC_SKILL": "Capacité de tir",
     "CHARACTERISTIC.STRENGTH": "Force",
@@ -102,13 +97,13 @@
     "CHARACTERISTIC.PERCEPTION": "Perception",
     "CHARACTERISTIC.WILLPOWER": "Force Mentale",
     "CHARACTERISTIC.FELLOWSHIP": "Sociabilité",
-    "CHARACTERISTIC.INFLUENCE": "Influence",
   
     "CHARACTERISTIC.NAME": "Nom",
     "CHARACTERISTIC.ADVANCE": "Progression",
     "CHARACTERISTIC.UNNATURAL": "Surnaturel",
     "CHARACTERISTIC.BASE": "Base",
     "CHARACTERISTIC.COST": "Coût",
+    "CHARACTERISTIC.DAMAGE": "Dégâts",
   
     "CHAT.SUCCESS": "Réussite !",
     "CHAT.FAILURE": "Echec !",
@@ -255,7 +250,6 @@
     "RANGE.EXTREME": "Extrème",
   
     "SKILL.ACROBATICS": "Acrobatie",
-    "SKILL.ATHLETICS": "Athlétisme",
     "SKILL.AWARENESS": "Vigilance",
     "SKILL.CHARM": "Charisme",
     "SKILL.COMMAND": "Commandement",
@@ -267,18 +261,14 @@
     "SKILL.INQUIRY": "Enquête",
     "SKILL.INTERROGATION": "Interrogatoire",
     "SKILL.INTIMIDATE": "Intimidation",
-    "SKILL.LINGUISTICS": "Langue",
     "SKILL.LOGIC": "Logique",
     "SKILL.MEDICAE": "Medicae",
-    "SKILL.NAVIGATE": "Orientation",
-    "SKILL.OPERATE": "Pilotage",
-    "SKILL.PARRY": "Parade",
+    "SKILL.NAVIGATION": "Orientation",
     "SKILL.PSYNISCIENCE": "Psyniscience",
     "SKILL.SCHOLASTIC_LORE": "Connaissances scholastiques",
     "SKILL.SCRUTINY": "Psychologie",
     "SKILL.SECURITY": "Intrusion",
     "SKILL.SLEIGHT_OF_HAND": "Escamotage",
-    "SKILL.STEALTH": "Dissimulation",
     "SKILL.SURVIVAL": "Survie",
     "SKILL.TECH_USE": "Technomaîtrise",
     "SKILL.TRADE": "Métier",
@@ -310,7 +300,6 @@
     "TALENT.STARTER": "I",
     "TALENT.PREREQUISITES": "Prérequis",
     "TALENT.TIER": "Rang",
-    "TALENT.APTITUDES": "Aptitudes",
   
     "TOOL.HEADER": "Outil",
     "TOOL.NAME": "Nom",
@@ -326,7 +315,6 @@
     "TITLE.CHARACTERISTICS": "Caractéristique",
     "TITLE.CORRUPTION": "Corruption",
     "TITLE.SKILLS": "Compétences",
-    "TITLE.APTITUDES": "Aptitudes",
     "TITLE.EXPERIENCE": "Expérience",
     "TITLE.TALENTS": "Talents",
     "TITLE.TRAITS": "Traits",

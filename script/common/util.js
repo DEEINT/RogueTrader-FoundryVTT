@@ -67,7 +67,11 @@ export default class RogueTraderUtil {
 
         let characteristics = this.getCharacteristicOptions(actor, defaultChar);
         characteristics = characteristics.map(char => {
-            char.target += skill.advance;
+            if (skill.advance === -10) {
+                char.target = Math.floor(char.target / 2);
+            } else {
+                char.target += skill.advance;
+            }
             return char;
         });
 
@@ -83,10 +87,26 @@ export default class RogueTraderUtil {
     static createSpecialtyRollData(actor, skillName, specialityName) {
         const skill = actor.skills[skillName];
         const speciality = skill.specialities[specialityName];
+        const defaultChar = speciality.defaultCharacteristic
+            || speciality.characteristics[0]
+            || skill.defaultCharacteristic
+            || skill.characteristics[0];
+
+        let characteristics = this.getCharacteristicOptions(actor, defaultChar);
+        characteristics = characteristics.map(char => {
+            if (speciality.advance === -10) {
+                char.target = Math.floor(char.target / 2);
+            } else {
+                char.target += speciality.advance;
+            }
+            return char;
+        });
+
         return {
             name: speciality.label,
             baseTarget: speciality.total,
             modifier: 0,
+            characteristics: characteristics,
             ownerId: actor.id
         };
     }
@@ -136,7 +156,6 @@ export default class RogueTraderUtil {
     // These weapon traits never go above 9 or below 2
         return {
             accurate: this.hasNamedTrait(/(?<!in)Accurate/gi, traits),
-            rfFace: this.extractNumberedTrait(/Vengeful.*\(\d\)/gi, traits), // The alternativ die face Righteous Fury is triggered on
             proven: this.extractNumberedTrait(/Proven.*\(\d\)/gi, traits),
             primitive: this.extractNumberedTrait(/Primitive.*\(\d\)/gi, traits),
             razorSharp: this.hasNamedTrait(/Razor.?-? *Sharp/gi, traits),

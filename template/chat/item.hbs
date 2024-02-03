@@ -96,7 +96,6 @@
 
         {{#if item.isTalent}}
         <p><strong>{{localize "TALENT.PREREQUISITES"}}:</strong> {{item.prerequisites}}</p>
-        <p><strong>{{localize "TALENT.APTITUDES"}}:</strong> {{item.aptitudes}}</p>
         <p><strong>{{localize "TALENT.TIER"}}:</strong> {{item.tier}}</p>
         <p><strong>{{localize "HEADER.DESCRIPTION"}}:</strong> {{{item.description}}}</p>
         {{/if}}
@@ -133,10 +132,6 @@
         <p><strong>{{localize "WEAPON_MODIFICATION.WEIGHT"}}:</strong> {{item.weight}}</p>
         <p><strong>{{localize "WEAPON_MODIFICATION.CRAFTSMANSHIP"}}:</strong> {{item.Craftsmanship}}</p>
         <p><strong>{{localize "WEAPON_MODIFICATION.AVAILABILITY"}}:</strong> {{item.Availability}}</p>
-        {{/if}}
-
-        {{#if item.isAptitude}}
-        <p><strong>{{localize "HEADER.DESCRIPTION"}}:</strong> {{{item.description}}}</p>
         {{/if}}
     </div>
 </div>

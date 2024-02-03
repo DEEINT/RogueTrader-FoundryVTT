@@ -132,6 +132,7 @@ export async function prepareCombatRoll(rollData, actorRef) {
                                     }
                                     break;
                                 }
+                                case "suppressing_fire":
                                 case "full_auto": {
                                     if (rollData.clip.value < rollData.rateOfFire.full) {
                                         return reportEmptyClip(rollData);
