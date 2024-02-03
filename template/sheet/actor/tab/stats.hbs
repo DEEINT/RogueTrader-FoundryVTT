@@ -106,7 +106,7 @@
     <div class="skills border">
         <h1>{{localize "TITLE.SKILLS"}}</h1>
         <div class="flex row" style="flex-basis: 60%">
-            <div class="flex column wrap" style="max-height: 330px;flex-basis: 50%">
+            <div class="flex row wrap" style="max-height: 330px;overflow-y: scroll">
                 {{#each system.skills as |skill key|}}
                     {{#unless skill.isSpecialist}}
                         {{#if skill.isKnown}}
