@@ -34,7 +34,7 @@
   "ARMOUR.CRAFTSMANSHIP": "Calidad",
   "ARMOUR.AVAILABILITY": "Disponibilidad",
 
-  "ARMOUR_TYPE.BASIC": "Básico",
+  "ARMOUR_TYPE.PRIMITIVE": "Básico",
   "ARMOUR_TYPE.FLAK": "Antifragmentación",
   "ARMOUR_TYPE.MESH": "Malla",
   "ARMOUR_TYPE.CARAPACE": "Caparazón",

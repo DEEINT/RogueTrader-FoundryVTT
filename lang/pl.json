@@ -56,7 +56,7 @@
   "ARMOUR.CRAFTSMANSHIP": "Rzemiosło",
   "ARMOUR.AVAILABILITY": "Dostępność",
 
-  "ARMOUR_TYPE.BASIC": "Prosty",
+  "ARMOUR_TYPE.PRIMITIVE": "Prosty",
   "ARMOUR_TYPE.FLAK": "Flak",
   "ARMOUR_TYPE.MESH": "Siatka",
   "ARMOUR_TYPE.CARAPACE": "Karapak",
@@ -64,9 +64,7 @@
 
   "ATTACK_TYPE.NONE": "Żaden",
   "ATTACK_TYPE.STANDARD": "Standardowy",
-  "ATTACK_TYPE.SWIFT": "Szybki",
   "ATTACK_TYPE.SEMI_AUTO": "Ogień półautomatyczny",
-  "ATTACK_TYPE.LIGHTNING": "Elektryczny",
   "ATTACK_TYPE.FULL_AUTO": "Ogień automatyczny",
   "ATTACK_TYPE.CALLED_SHOT": "Strzał Celowany",
   "ATTACK_TYPE.CHARGE": "Szarża",

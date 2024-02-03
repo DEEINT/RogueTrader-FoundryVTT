@@ -229,7 +229,7 @@ function _computeNumberOfHits(attackDos, evasionDos, attackType, weaponTraits) {
         attackDos += attackType.hitMargin;
     }
 
-    let hits = 1 + Math.floor((attackDos - 1) / attackType.hitMargin);
+    let hits = 1 + Math.floor(attackDos / attackType.hitMargin);
 
     if (hits > attackType.maxHits) {
         hits = attackType.maxHits;
@@ -374,11 +374,6 @@ function _getLocation(result) {
 function _computeRateOfFire(rollData) {
     switch (rollData.attackType.name) {
         case "standard":
-            rollData.attackType.modifier = 10;
-            rollData.attackType.hitMargin = 1;
-            rollData.attackType.maxHits = 1;
-            break;
-
         case "bolt":
         case "blast":
             rollData.attackType.modifier = 0;
@@ -386,18 +381,27 @@ function _computeRateOfFire(rollData) {
             rollData.attackType.maxHits = 1;
             break;
 
-        case "swift":
         case "semi_auto":
+            rollData.attackType.modifier = 10;
+            rollData.attackType.hitMargin = 2;
+            rollData.attackType.maxHits = rollData.rateOfFire.burst;
+            break;
+
         case "barrage":
             rollData.attackType.modifier = 0;
             rollData.attackType.hitMargin = 2;
             rollData.attackType.maxHits = rollData.rateOfFire.burst;
             break;
 
-        case "lightning":
         case "full_auto":
-            rollData.attackType.modifier = -10;
+            rollData.attackType.modifier = 20;
             rollData.attackType.hitMargin = 1;
+            rollData.attackType.maxHits = rollData.rateOfFire.full;
+            break;
+
+        case "suppressing_fire":
+            rollData.attackType.modifier = -20;
+            rollData.attackType.hitMargin = 2;
             rollData.attackType.maxHits = rollData.rateOfFire.full;
             break;
 
@@ -408,20 +412,26 @@ function _computeRateOfFire(rollData) {
             break;
 
         case "charge":
-            rollData.attackType.modifier = 20;
+            rollData.attackType.modifier = 10;
             rollData.attackType.hitMargin = 1;
             rollData.attackType.maxHits = 1;
             break;
 
         case "allOut":
-            rollData.attackType.modifier = 30;
+            rollData.attackType.modifier = 20;
+            rollData.attackType.hitMargin = 1;
+            rollData.attackType.maxHits = 1;
+            break;
+
+        case "guarded":
+            rollData.attackType.modifier = -10;
             rollData.attackType.hitMargin = 1;
             rollData.attackType.maxHits = 1;
             break;
 
         default:
             rollData.attackType.modifier = 0;
-            rollData.attackType.hitMargin = 0;
+            rollData.attackType.hitMargin = 1;
             rollData.attackType.maxHits = 1;
             break;
     }
@@ -429,8 +439,8 @@ function _computeRateOfFire(rollData) {
 
 const additionalHit = {
     head: ["ARMOUR.HEAD", "ARMOUR.RIGHT_ARM", "ARMOUR.BODY", "ARMOUR.LEFT_ARM", "ARMOUR.BODY"],
-    rightArm: ["ARMOUR.RIGHT_ARM", "ARMOUR.RIGHT_ARM", "ARMOUR.HEAD", "ARMOUR.BODY", "ARMOUR.RIGHT_ARM"],
-    leftArm: ["ARMOUR.LEFT_ARM", "ARMOUR.LEFT_ARM", "ARMOUR.HEAD", "ARMOUR.BODY", "ARMOUR.LEFT_ARM"],
+    rightArm: ["ARMOUR.RIGHT_ARM", "ARMOUR.BODY", "ARMOUR.HEAD", "ARMOUR.BODY", "ARMOUR.RIGHT_ARM"],
+    leftArm: ["ARMOUR.LEFT_ARM", "ARMOUR.BODY", "ARMOUR.HEAD", "ARMOUR.BODY", "ARMOUR.LEFT_ARM"],
     body: ["ARMOUR.BODY", "ARMOUR.RIGHT_ARM", "ARMOUR.HEAD", "ARMOUR.LEFT_ARM", "ARMOUR.BODY"],
     rightLeg: ["ARMOUR.RIGHT_LEG", "ARMOUR.BODY", "ARMOUR.RIGHT_ARM", "ARMOUR.HEAD", "ARMOUR.BODY"],
     leftLeg: ["ARMOUR.LEFT_LEG", "ARMOUR.BODY", "ARMOUR.LEFT_ARM", "ARMOUR.HEAD", "ARMOUR.BODY"]

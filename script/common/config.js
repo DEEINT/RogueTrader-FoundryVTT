@@ -7,6 +7,7 @@ Rt.attackTypeRanged = {
     standard: "ATTACK_TYPE.STANDARD",
     semi_auto: "ATTACK_TYPE.SEMI_AUTO",
     full_auto: "ATTACK_TYPE.FULL_AUTO",
+    suppressing_fire: "ATTACK_TYPE.SUPPRESSING_FIRE",
     called_shot: "ATTACK_TYPE.CALLED_SHOT"
 };
 
@@ -14,8 +15,7 @@ Rt.attackTypeMelee = {
     none: "ATTACK_TYPE.NONE",
     standard: "ATTACK_TYPE.STANDARD",
     charge: "ATTACK_TYPE.CHARGE",
-    swift: "ATTACK_TYPE.SWIFT",
-    lightning: "ATTACK_TYPE.LIGHTNING",
+    guarded: "ATTACK_TYPE.GUARDED",
     allOut: "ATTACK_TYPE.ALLOUT",
     called_shot: "ATTACK_TYPE.CALLED_SHOT"
 };

@@ -163,7 +163,7 @@ export class RogueTraderItem extends Item {
     get ArmourType() {
         switch (this.subtype) {
             case "basic":
-                return game.i18n.localize("ARMOUR_TYPE.BASIC");
+                return game.i18n.localize("ARMOUR_TYPE.PRIMITIVE");
             case "flak":
                 return game.i18n.localize("ARMOUR_TYPE.FLAK");
             case "mesh":
@@ -172,8 +172,10 @@ export class RogueTraderItem extends Item {
                 return game.i18n.localize("ARMOUR_TYPE.CARAPACE");
             case "power":
                 return game.i18n.localize("ARMOUR_TYPE.POWER");
+            case "other":
+                return game.i18n.localize("ARMOUR_TYPE.OTHER");
             default:
-                return game.i18n.localize("ARMOUR_TYPE.COMMON");
+                return game.i18n.localize("ARMOUR_TYPE.PRIMITIVE");
         }
     }
 

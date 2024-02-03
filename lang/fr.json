@@ -34,7 +34,7 @@
     "ARMOUR.CRAFTSMANSHIP": "Qualité",
     "ARMOUR.AVAILABILITY": "Disponibilité",
   
-    "ARMOUR_TYPE.BASIC": "Primitive",
+    "ARMOUR_TYPE.PRIMITIVE": "Primitive",
     "ARMOUR_TYPE.FLAK": "Pare-balle",
     "ARMOUR_TYPE.MESH": "Composite",
     "ARMOUR_TYPE.CARAPACE": "Carapace",
@@ -42,9 +42,7 @@
   
     "ATTACK_TYPE.NONE": "Aucune",
     "ATTACK_TYPE.STANDARD": "Attaque standard",
-    "ATTACK_TYPE.SWIFT": "Attaque rapide",
     "ATTACK_TYPE.SEMI_AUTO": "Rafale semi-automatique",
-    "ATTACK_TYPE.LIGHTNING": "Attaque éclaire",
     "ATTACK_TYPE.FULL_AUTO": "Rafale automatique",
     "ATTACK_TYPE.CALLED_SHOT": "Attaque ciblée",
   
