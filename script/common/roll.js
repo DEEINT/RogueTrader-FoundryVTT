@@ -258,7 +258,7 @@ async function _computeDamage(damageFormula, penetration, dos, isAiming, weaponT
     r.evaluate({ async: false });
     let damage = {
         total: r.total,
-        righteousFury: 0,
+        righteousFury: false,
         dices: [],
         penetration: penetration,
         dos: dos,
@@ -285,10 +285,10 @@ async function _computeDamage(damageFormula, penetration, dos, isAiming, weaponT
 
     r.terms.forEach(term => {
         if (typeof term === "object" && term !== null) {
-            let rfFace = weaponTraits.rfFace ? weaponTraits.rfFace : term.faces; // Without the Vengeful weapon trait rfFace is undefined
+            let rfFace = term.faces;
             term.results?.forEach(async result => {
                 let dieResult = result.count ? result.count : result.result; // Result.count = actual value if modified by term
-                if (result.active && dieResult >= rfFace) damage.righteousFury = _rollRighteousFury();
+                if (result.active && dieResult >= rfFace) damage.righteousFury = true;
                 if (result.active && dieResult < dos) damage.dices.push(dieResult);
                 if (result.active && (typeof damage.minDice === "undefined" || dieResult < damage.minDice)) damage.minDice = dieResult;
             });
@@ -318,16 +318,6 @@ function _rollPenetration(rollData) {
     let r = new Roll(penetration.toString());
     r.evaluate({ async: false });
     return r.total * multiplier;
-}
-
-/**
- * Roll a Righteous Fury dice, and return the value.
- * @returns {number}
- */
-function _rollRighteousFury() {
-    let r = new Roll("1d5");
-    r.evaluate({ async: false });
-    return r.total;
 }
 
 /**

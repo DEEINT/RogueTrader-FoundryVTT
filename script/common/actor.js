@@ -391,7 +391,6 @@ export class RogueTraderActor extends Actor {
      * @param {string} damages.location     Localised location of the body part taking damage
      * @param {number} damages.penetration  Amount of penetration from the attack
      * @param {string} damages.type         Type of damage
-     * @param {number} damages.righteousFury Amount rolled on the righteous fury die, defaults to 0
      * @returns {Promise<Actor>}             A Promise which resolves once the damage has been applied
      */
     async applyDamage(damages) {
@@ -411,14 +410,6 @@ export class RogueTraderActor extends Actor {
 
             // Calculate wounds to add, reducing damage by armour after pen
             let woundsToAdd = Math.max(damageMinusToughness - armour, 0);
-
-            // If no wounds inflicted and righteous fury was rolled, attack causes one wound
-            if (damage.righteousFury && woundsToAdd === 0) {
-                woundsToAdd = 1;
-            } else if (damage.righteousFury) {
-                // Roll on crit table but don't add critical wounds
-                this._recordDamage(damageTaken, damage.righteousFury, damage, "Critical Effect (RF)");
-            }
 
             // Check for critical wounds
             if (wounds === maxWounds) {
