@@ -87,10 +87,7 @@ export default class RogueTraderUtil {
     static createSpecialtyRollData(actor, skillName, specialityName) {
         const skill = actor.skills[skillName];
         const speciality = skill.specialities[specialityName];
-        const defaultChar = speciality.defaultCharacteristic
-            || speciality.characteristics[0]
-            || skill.defaultCharacteristic
-            || skill.characteristics[0];
+        const defaultChar = (typeof speciality.characteristics === "undefined") ? skill.characteristics[0] : speciality.characteristics[0];
 
         let characteristics = this.getCharacteristicOptions(actor, defaultChar);
         characteristics = characteristics.map(char => {
