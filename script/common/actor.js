@@ -59,11 +59,15 @@ export class RogueTraderActor extends Actor {
             if (skill.isSpecialist) {
                 let specialitiesKnown = 0;
                 for (let speciality of Object.values(skill.specialities)) {
-                    if ((typeof speciality.characteristics !== "undefined") && (short !== speciality.characteristics[0])) {
+                    if ((typeof speciality.characteristics === "undefined")) {
+                        characteristic = this._findCharacteristic(short);
+                    } else {
                         characteristic = this._findCharacteristic(speciality.characteristics[0]);
                     }
-                    speciality.isKnown = speciality.advance >= -10;
-                    if (speciality.isKnown) { ++specialitiesKnown; }
+                    if (speciality.advance >= -10) {
+                        speciality.isKnown = true;
+                        ++specialitiesKnown;
+                    }
                     speciality.total = characteristic.total + speciality.advance;
                     speciality.advanceSpec = this._getAdvanceSkill(speciality.advance);
                 }
