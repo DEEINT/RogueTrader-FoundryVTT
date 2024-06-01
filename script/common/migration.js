@@ -1,12 +1,12 @@
 export const migrateWorld = async () => {
-    const schemaVersion = 6;
+    const schemaVersion = 7;
     const worldSchemaVersion = Number(game.settings.get("rogue-trader", "worldSchemaVersion"));
     if (worldSchemaVersion !== schemaVersion && game.user.isGM) {
         ui.notifications.info("Upgrading the world, please wait...");
         for (let actor of game.actors.contents) {
             try {
                 const update = migrateActorData(actor, worldSchemaVersion);
-                if (!isObjectEmpty(update)) {
+                if (!isEmpty(update)) {
                     await actor.update(update, {enforceTypes: false});
                 }
             } catch(e) {
@@ -133,6 +133,20 @@ const migrateActorData = (actor, worldSchemaVersion) => {
         }
     }
 
+    if (worldSchemaVersion < 7) {
+        actor.prepareData();
+        if (actor.type === "explorer" || actor.type === "npc") {
+            actor.skills.carouse.characteristics = ["T","Fel"];
+            update["system.skills.carouse"] = actor.skills.carouse;
+
+            actor.skills.literacy.characteristics = ["Int","Fel","Per"];
+            update["system.skills.literacy"] = actor.skills.literacy;
+            
+            actor.skills.survival.characteristics = ["Int","Per","Ag"];
+            update["system.skills.survival"] = actor.skills.survival;
+        }
+    }
+
     return update;
 };
 
@@ -153,7 +167,7 @@ export const migrateCompendium = async function(pack, worldSchemaVersion) {
         if (entity === "Actor") {
             updateData = migrateActorData(ent, worldSchemaVersion);
         }
-        if (!isObjectEmpty(updateData)) {
+        if (!isEmpty(updateData)) {
             expandObject(updateData);
             updateData._id = ent.id;
             await pack.updateEntity(updateData);

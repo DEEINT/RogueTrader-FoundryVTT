@@ -63,7 +63,7 @@ export default class RogueTraderUtil {
 
     static createSkillRollData(actor, skillName) {
         const skill = actor.skills[skillName];
-        const defaultChar = skill.defaultCharacteristic || skill.characteristics[0];
+        const defaultChar = skill.characteristics[0];
 
         let characteristics = this.getCharacteristicOptions(actor, defaultChar);
         characteristics = characteristics.map(char => {
@@ -156,8 +156,8 @@ export default class RogueTraderUtil {
             proven: this.extractNumberedTrait(/Proven.*\(\d\)/gi, traits),
             primitive: this.extractNumberedTrait(/Primitive.*\(\d\)/gi, traits),
             razorSharp: this.hasNamedTrait(/Razor.?-? *Sharp/gi, traits),
-            spray: this.hasNamedTrait(/Spray/gi, traits),
-            skipAttackRoll: this.hasNamedTrait(/Spray/gi, traits), // Currently, spray will always be the same as skipAttackRoll. However, in the future, there may be other skipAttackRoll weapons that are not Spray.
+            flame: this.hasNamedTrait(/Flame/gi, traits),
+            skipAttackRoll: this.hasNamedTrait(/Flame/gi, traits), // Currently, flame will always be the same as skipAttackRoll. However, in the future, there may be other skipAttackRoll weapons that are not Flame.
             tearing: this.hasNamedTrait(/Tearing/gi, traits),
             storm: this.hasNamedTrait(/Storm/gi, traits),
             twinLinked: this.hasNamedTrait(/Twin.?-? *Linked/gi, traits),

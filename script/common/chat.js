@@ -131,8 +131,7 @@ function onTestClick(ev) {
     }
     let evasions = {
         dodge: RogueTraderUtil.createSkillRollData(actor, "dodge"),
-        parry: RogueTraderUtil.createSkillRollData(actor, "parry"),
-        deny: RogueTraderUtil.createCharacteristicRollData(actor, "willpower"),
+        parry: RogueTraderUtil.createCharacteristicRollData(actor, "weaponSkill"),
         selected: "dodge"
     };
     rollData.evasions = evasions;

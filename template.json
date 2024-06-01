@@ -151,6 +151,7 @@
           "carouse": {
             "label": "SKILL.CAROUSE",
             "characteristics": [
+              "T",
               "Fel"
             ],
             "advance": -10,
@@ -610,8 +611,8 @@
           "literacy": {
             "label": "SKILL.LITERACY",
             "characteristics": [
-              "Fel",
               "Int",
+              "Fel",
               "Per"
             ],
             "advance": -20,
@@ -1055,9 +1056,9 @@
           "survival": {
             "label": "SKILL.SURVIVAL",
             "characteristics": [
+              "Int",
               "Per",
-              "Ag",
-              "Int"
+              "Ag"
             ],
             "advance": -20,
             "isSpecialist": false,
