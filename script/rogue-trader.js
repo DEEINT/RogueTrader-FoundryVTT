@@ -89,9 +89,9 @@ Hooks.once("init", () => {
         default: false,
         type: Boolean
     }); */
-    game.settings.register("rogue-trader", "useSpraytemplate", {
-        name: "Use Template with Spray Weapons",
-        hint: "If enabled, Spray Weapons will require the user to put down a template before the roll is made. Templates are NOT removed automatically",
+    game.settings.register("rogue-trader", "useFlametemplate", {
+        name: "Use Template with Flame Weapons",
+        hint: "If enabled, Flame Weapons will require the user to put down a template before the roll is made. Templates are NOT removed automatically",
         scope: "client",
         config: true,
         default: true,

@@ -51,8 +51,7 @@ Rt.aimModes = {
 
 Rt.evasions = {
     dodge: "SKILL.DODGE",
-    parry: "SKILL.PARRY",
-    deny: "DIALOG.DENY_THE_WITCH"
+    parry: "EVASIONS.PARRY",
 };
 
 Rt.characteristicCosts = [

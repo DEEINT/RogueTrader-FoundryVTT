@@ -8,7 +8,6 @@ New-Item -Path $target -ItemType Directory -ErrorAction SilentlyContinue
 Copy-Item -Path ".\asset" -Destination $target -Recurse
 Copy-Item -Path ".\lang" -Destination $target -Recurse
 Copy-Item -Path ".\logo" -Destination $target -Recurse
-#Copy-Item -Path ".\packs" -Destination $target -Recurse
 Copy-Item -Path ".\template" -Destination $target -Recurse
 Copy-item -Path ".\CONTRIBUTING.md" -Destination $target
 Copy-item -Path ".\README.md" -Destination $target

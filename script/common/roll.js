@@ -13,6 +13,10 @@ export async function commonRoll(rollData) {
             rollData.dos,
             rollData.attackType,
             rollData.weaponTraits);
+            if (rollData.isSuccess) {
+                // -1 as a Success with 0 Degrees success still reduces the hits by 1
+                rollData.numberOfHits = Math.max(rollData.numberOfHits -1, 0);
+            }
     }
     await _sendRollToChat(rollData);
 }
@@ -22,12 +26,12 @@ export async function commonRoll(rollData) {
  * @param {object} rollData
  */
 export async function combatRoll(rollData) {
-    if (rollData.weaponTraits.spray && game.settings.get("rogue-trader", "useSpraytemplate")) {
+    if (rollData.weaponTraits.flame && game.settings.get("rogue-trader", "useFlametemplate")) {
         let template = PlaceableTemplate.cone(rollData.itemId, 30, rollData.range);
         await template.drawPreview();
     }
     if (rollData.weaponTraits.skipAttackRoll) {
-        rollData.result = 5; // Attacks that skip the hit roll always hit body; 05 reversed 50 = body
+        rollData.attackResult = 5; // Attacks that skip the hit roll always hit body; 05 reversed 50 = body
         rollData.isDamageRoll = true;
         await _rollDamage(rollData);
         await sendDamageToChat(rollData);
@@ -108,7 +112,6 @@ async function _computeCommonTarget(rollData) {
         switch (rollData.evasions.selected) {
             case "dodge": skill = rollData.evasions.dodge; break;
             case "parry": skill = rollData.evasions.parry; break;
-            case "deny": skill = rollData.evasions.deny; break;
         }
         rollData.target = _getRollTarget(rollData.modifier, skill.baseTarget);
     } else {
@@ -269,7 +272,7 @@ async function _computeDamage(damageFormula, penetration, dos, isAiming, weaponT
     };
 
     if (weaponTraits.accurate && isAiming) {
-        let numDice = ~~((dos - 1) / 2); // -1 because each degree after the first counts
+        let numDice = ~~(dos / 2);
         if (numDice >= 1) {
             if (numDice > 2) numDice = 2;
             let ar = new Roll(`${numDice}d10`);
